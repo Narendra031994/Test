@@ -108,7 +108,7 @@ else:
 # check if the character is repeated 2 or three times continuously in a word/given string
 pattern = "a{2,3}"
 string = "aaa bc aa cd aaaa"
-result = re.findall(patter,string)
+result = re.findall(pattern,string)
 print(result)
 
 
