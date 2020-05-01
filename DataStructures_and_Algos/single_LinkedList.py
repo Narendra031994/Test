@@ -50,10 +50,22 @@ class LinkedList:
             if idx == index:
                 return cur.data
             idx+=1    
-            
+    def remove(self,index):
+        if (index > self.len_()):
+            return "Index is out of range"
+        idx = 0
+        cur = self.head
+        while True:
+            last = cur
+            cur = cur.next
+            if idx == index:
+                last.next = cur.next
+                return
+            idx += 1
         
 obj = LinkedList()
-obj.append(17)
+obj.append(155)
 print(obj.display())
 print(obj.get(3))
+obj.remove(1)
 
