@@ -1,10 +1,3 @@
-name = input("enter the name : ")
-_password = "abcd2011"
-pcount = len(_password)
-while not (len(name)>=5 and name.isalpha() and name.isprintable() and pcount > 2 and _password.isalnum):
-    name = input("enter the name : ")
-print(name,_password)
-
 # try and except -- exception handling
 a = 2
 x = 2
@@ -55,3 +48,69 @@ obj.isEnough()
 str(obj) # this will execute __str__()
 obj # this will execute the __repr__() -- representation 
  
+ 
+ # memory management 
+var1 = 10
+var2 = var1
+print("address of var1 = {0}\n address of var2 = {1}".format(id(var1),id(var2))) 
+print(var1 is var2) # check the address and return boolean
+print(var1 == var2)# check the value and return true if equal
+
+
+"""
+Mutable objects or structures : List, Sets ,Dict
+Immputable objects or structures : Int, Float, Bool,Tuple, String
+
+"""
+# Immutable objects and shared references
+text = "Data is big."
+data = text
+def check_sharedref():
+    print("address of text = {0}\n address of data = {1}".format(id(text),id(data)))
+    if text is data:
+        print("shared reference")
+    else:
+        return "No shared reference"
+check_sharedref()
+data = text + "but can be interpreted wasily with the help of anlytical tools!!!"
+check_sharedref()
+
+# List is mutable and no shared reference when same values assigned to different variable names/identifier
+li = [1,3,11]
+li_dup = [1,3,11]
+print("address of text = {0}\n address of data = {1}".format(id(li),id(li_dup)))
+
+li = [1,1]
+li_dup = li
+print("address of text = {0}\n address of data = {1}".format(id(li),id(li_dup)))
+li_dup.append(10) # this will effect both li and li_dup as they are sharing reference to the same memory location where the list object is stored
+print(li,li_dup)
+
+# Tuple is immutable sequence but sometimes elements of tuple are mutable
+
+tu = (1,1)
+tu[0] = 10 #integers are immutable, it should throw an error
+
+tu = ([1,1],'a')
+tu[0].append(20) # first element is list and it can be mutable
+print(tu) # 
+
+# function use shared reference while passing a parameter
+import sys
+import ctypes
+def concat(string):
+    print('reference count of string - sys',sys.getrefcount(string))
+    print('reference count of string - ctype',ctypes.c_long.from_address(id(string)))
+    new = string + "hello"
+    print("address of string = {0}\n address of new = {1}".format(id(string),id(new)))
+    print(new)
+    return
+s = "hey!"
+concat(s) # id(string) is copied and passed to the function's local variable string.
+"""
+module space:    s --->hey(address = 111)
+function space:  string -----hey(address = 111)
+                 new = 'hey! hello' ---->(address = 115)
+"""           
+
+
