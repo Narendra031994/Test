@@ -42,3 +42,18 @@ d1 = {'a':10,'b':210}
 d2 = {'a':1000}
 d3 = {**d1,**d2} # Update the lates values of keys and merge the dicts
 
+# *args
+def max_avg(*args:'collects all the arguments and pack into tuple')->"returns max and avg value from the tuple":
+    """
+    input : *args (can be any positional arguments)
+    output: max and avg(of type integer)
+    """
+    print(args) # This is the tuple with all the elements from the function call
+    count = len(args)
+    avg = sum(args)/count
+    return {'avg' : avg,'max':max(args)}
+max_avg(1,4,15,4)
+
+# documentation of a function
+help(max_avg)
+max_avg.__annotations__ # this will print all the meta data given during parameter creation
