@@ -111,6 +111,13 @@ concat(s) # id(string) is copied and passed to the function's local variable str
 module space:    s --->hey(address = 111)
 function space:  string -----hey(address = 111)
                  new = 'hey! hello' ---->(address = 115)
-"""           
+"""
 
+a = "abcd"
+b = a # and b have shared references
+sys.getrefcount(a)-1
+b = a+ "abcds" # pointing to a new memory location 
+sys.getrefcount(a)-1
+a = None
+print(sys.getrefcount(a)-1 and a is None) # true
 
