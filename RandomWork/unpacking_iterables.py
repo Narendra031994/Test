@@ -5,7 +5,6 @@ print(a,b)
 print(id(a),id(b),id(l),id(l[0]),id(l[1]),id(b[0]))
 
 # unpacking a tuple
-
 tu = (1,2,3,4)
 a,*b = tu
 print(a,b)
@@ -15,6 +14,9 @@ print(id(a),id(b),id(l),id(l[0]),id(l[1]),id(b[0]))
 l1 = [1,2,3,4]
 l2 = [5,8,9,7]
 list_ = [*l1,*l2]
+tuple_ = (*l1,*l2)
+set_ = {*l1,*l2}
+print(list_,tuple_,set_)
 
 # unpacking a set
 s = {1,2,4,55,5,5,5}
