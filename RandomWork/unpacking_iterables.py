@@ -1,3 +1,10 @@
+"""
+iterables in python : 
+String,List,Tuple,Dictionary,Set
+All these iterables support unpacking.
+
+"""
+
 l = [1,2,3,4]
 # unpacking a list
 a,*b = l
