@@ -68,3 +68,12 @@ def collect_(**kwargs):
 collect_(c = 10,d = 20)
 
 
+# lambda function
+fun = lambda x,*args,xx,**kwargs:(x,args,xx,kwargs)
+fun(10,"a","b",xx = 200,z = "1001",cc = "20011111")
+import math
+def lamb(x,fun):
+    return fun(x)
+fun = lambda x:x*math.sin(x)
+lamb(10,fun)
+
