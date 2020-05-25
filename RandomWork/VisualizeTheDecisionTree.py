@@ -11,3 +11,12 @@ cl.predict([[100,20]])
 
 # This wil visualize the DecisionTree structure constructed for the training tuples
 tree.plot_tree(cl)
+
+#===================================================================================
+cl.criterion = "entropy"
+
+cl.fit(data_x,data_y)
+cl.predict([[100,20]])
+
+# This wil visualize the DecisionTree structure constructed for the training tuples
+tree.plot_tree(cl)
