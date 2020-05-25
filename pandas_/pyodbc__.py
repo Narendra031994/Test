@@ -1,7 +1,7 @@
 import pyodbc 
 import pandas as pd
 
-sql_conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; SERVER=VAMPIRE_123\SQLEXPRESS; DATABASE=covid;   Trusted_Connection=yes')
+sql_conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server}; SERVER=VAMPIRE; DATABASE=covid;   Trusted_Connection=yes')
 cur = sql_conn.cursor()
 query = "SELECT * from covid_countries;"
 df1 = pd.read_sql(query, sql_conn)
