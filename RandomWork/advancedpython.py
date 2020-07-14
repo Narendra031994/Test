@@ -1,15 +1,17 @@
 # try and except -- exception handling
 a = 2
 x = 2
-while a > -2:
+while (x >-2):
     try:
         a/x
+        
     except ZeroDivisionError:
+        print("This is inside the exception")
         print("{0},{1} - 0 division error".format(a,x))
     finally :
+        print("this is executed always")
         print("{0},{1} - 0 - always executes".format(a,x))
-    a -= 1
-    x -= 1
+    x = x-1
     
 # enumerate the key and value in collections
 """
@@ -42,12 +44,21 @@ class ComputePower:
         return "computing power : {0},{1}".format(self.ram,self.cpu)
     def __repr__(self):
         return "ComputePower({0},{1})".format(self.ram,self.cpu)
+    def __gt__(self,other):
+        if (self.ram > other.ram):
+            return "{0} is better than the {1}".format(self,other)
+        else:
+            return  "{1} is better than the {0}".format(self,other)
+    
 
-obj = ComputePower(10,8)
+obj = ComputePower(1,8)
 obj.isEnough()
 str(obj) # this will execute __str__()
 obj # this will execute the __repr__() -- representation 
- 
+dir(obj)
+Asus = ComputePower(1,4)
+HP = ComputePower(8,2)
+print(Asus>HP) 
  
  # memory management 
 var1 = 10
@@ -121,3 +132,28 @@ sys.getrefcount(a)-1
 a = None
 print(sys.getrefcount(a)-1 and a is None) # true
 
+
+""" Sorted is a built in function which takes iterable and returns list in sorted order -->Ascending
+"""
+#custom sorting
+def order_(a:str):
+    """accept the string and assign some order to it"""
+    if a == 'a':
+        a = 100
+    elif a == 'b':
+        a = 99
+    elif a == 'z':
+        a = 0
+    return a
+l = ['a','b','a','z']
+
+sorted(l, key = lambda a: order_(a))
+
+# randomized sorting using the random module
+
+import random
+lis = [2,1,4,785,445,56,4,56,885,44,588,6631,4475,4477888955547]
+file = open(r"C:\Users\Naren\Desktop\random_sort.txt",'w+')
+for i in range(10000):
+    file.write(str(sorted(lis,key = lambda a:random.random())) + '\n')
+file.close()
