@@ -157,3 +157,14 @@ file = open(r"C:\Users\Naren\Desktop\random_sort.txt",'w+')
 for i in range(10000):
     file.write(str(sorted(lis,key = lambda a:random.random())) + '\n')
 file.close()
+
+
+# customized sorting using the function
+lis = [1,2,3,4]
+def sort_(a):
+    for i in range(len(lis)):
+        if a >= 3:
+            a = 0
+        return a
+
+sorted(lis,key = sort_)

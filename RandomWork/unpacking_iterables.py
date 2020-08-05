@@ -30,6 +30,11 @@ s = {1,2,4,55,5,5,5}
 A,*B =s
 print(A,B) 
 
+#unpacking a str using star(*) operator
+str_ = "this is a string   !"
+a,*n = str_
+print(*n)
+
 # unpacking a dictionary
 d = {'key1':12,'key2':10}
 a,b = d.values()
@@ -48,7 +53,7 @@ def max_avg(*args:'collects\] all the arguments and pack into tuple')->"returns 
     input : *args (can be any positional arguments)
     output: max and avg(of type integer)
     """
-    print(args) # This is the tuple with all the elements from the function call
+    print(*args) # This is the tuple with all the elements from the function call
     count = len(args)
     avg = sum(args)/count
     return {'avg' : avg,'max':max(args)}

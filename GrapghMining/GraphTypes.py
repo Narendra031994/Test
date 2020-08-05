@@ -19,7 +19,7 @@ class Graphs:
         return G
 obj = Graphs()
 #below loop generates complete graphs for the given n values
-for i in range(3,11):
+for i in range(3,6):
     obj.create_cg(i)
     
 
