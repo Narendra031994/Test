@@ -2,6 +2,7 @@
 builtin scopes : this is where all the builtin methods are stored.
 global scope :module namespace 
 local scope : function namespace
+nonlocal scope : neither local nor global, this is applicable only when there is nested functions.
 
 """
 c = 100 #this is the global variable
@@ -41,4 +42,28 @@ def method4(a,b):
 method4(10,50)
 print(z) #this will return the value of z
 
- 
+#-----------------------------------------------------------------------------------------------
+#nested functions and nonlocalscope 
+
+def outer():
+    a = 10 # a is the local to outer function
+    print("local space of outer method :",a)
+    def inner():
+        a = 30
+        print("this is local namespace of inner method :",a)
+    inner()
+outer()    
+
+#accessing and modifying the local space of other method or function using nonlocal keyword.
+def outer():
+    """this is nonlocal space of other method"""
+    a = 10 # a is the local to outer function
+    print("local space of outer method :",a)
+    def inner():
+        """nonlocal space of outer method"""
+        nonlocal a
+        a = 20
+        print("a from the nonlocalspace :",a)
+    inner()
+    print("after modifying the a value:",a)
+outer()

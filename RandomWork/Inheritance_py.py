@@ -39,8 +39,7 @@ class Parent_B:
         
 class sub_C(Parent_A,Parent_B):
     def __init__(self):
-        super().meth1()
-        super().meth2()
+        super().__init__()
         print("this is sub_c class")
 """
 Method resolution order : 
