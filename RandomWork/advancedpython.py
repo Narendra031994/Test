@@ -162,7 +162,7 @@ file.close()
 # customized sorting using the function
 lis = [1,2,3,4]
 def sort_(a):
-    for i in range(len(lis)):
+    for _ in range(len(lis)):
         if a >= 3:
             a = 0
         return a
